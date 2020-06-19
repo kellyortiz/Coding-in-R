@@ -1,0 +1,195 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+EXEMPLO
+```{r}
+P=matrix(c(1,0,0,0,0,
+           +0.2,0.1,0.3,0.1,0.3,
+           +0.2,0.2,0.2,0.2,0.2,
+           +0,0,0,0.4,0.6,
+           +0,0,0,0.5,0.5),
+         nrow=5, byrow=TRUE)
+P
+```
+```{r}
+colnames(P) = c(0:4)
+rownames(P) = c(0:4)
+P
+```
+
+```{r}
+P["2","3"]
+```
+
+```{r}
+P["3","4"]
+```
+
+```{r}
+P["2","3"] * P["3","4"]
+```
+
+```{r}
+P2=P%*%P
+P2
+```
+
+```{r}
+P2["2","4"]
+```
+
+```{r}
+pi0=c(0,1/3,1/3,1/3,0)
+pi0
+```
+
+```{r}
+pi1=pi0%*%P
+pi1
+```
+
+```{r}
+P4=P2%*%P2
+P4
+```
+
+```{r}
+pi4=pi0%*%P4
+pi4
+```
+
+```{r}
+P3=P2%*%P
+P3
+```
+
+```{r}
+P3["1","3"] *P2["3","4"]
+```
+
+```{r}
+Pt=matrix(c(0.1,0.3,0.2,0.2), nrow=2, byrow=TRUE)
+Pt
+```
+
+```{r}
+B=matrix(c(0.2,0.4,0.2,0.4), nrow=2, byrow=TRUE)
+B
+```
+
+Matriz reversa
+
+```{r}
+I=matrix(c(1,0,0,1), nrow=2, byrow=TRUE)
+I
+```
+
+```{r}
+I_Pt = I - Pt
+I_Pt
+```
+
+
+```{r}
+inv = solve(I_Pt)
+inv
+```
+
+```{r}
+R = inv%*%B
+R
+```
+
+ATIVIDADE 
+
+1)
+```{r}
+P = matrix(c(0.6,0,0.4,
+            + 0.1,0.8,0.1,
+            + 0.3,0.2,0.5),
+           nrow = 3, byrow = TRUE)
+colnames(P) = (0:2)
+rownames(P) = (0:2)
+P
+```
+
+```{r}
+P["1","2"]
+```
+
+```{r}
+P2 = P%*%P
+P2
+```
+
+```{r}
+P3=P2%*%P
+P3
+```
+
+```{r}
+X=c(1/2,0,1/2)
+X1=X%*%P
+X1
+```
+
+```{r}
+X3 = X%*%P3
+X3
+```
+
+2) Suponha que cada vez que uma refeição do menu kids é solicitada em um restaurante para uma criança, a criança recebe de brinde uma das cinco miniaturas colecionáveis da série “tranformers”, sorteada ao acaso. 
+```{r}
+P = matrix(c(0,1,0,0,0,0,
+            + 0,0.2,0.8,0,0,0,
+            + 0,0,0.4,0.6,0,0,
+            + 0,0,0,0.6,0.4,0,
+            + 0,0,0,0,0.4,0.2,
+            + 0,0,0,0,0,1),
+           nrow = 6, byrow = TRUE)
+colnames(P) = (0:5)
+rownames(P) = (0:5)
+P
+```
+
+```{r}
+P2 = P%*%P
+P2
+```
+```{r}
+P5=P2%*%P2
+P5
+```
+```{r}
+P10=P5%*%P5
+P10
+```
+
+```{r}
+P20=P10%*%P10
+P20
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
